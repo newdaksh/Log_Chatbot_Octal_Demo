@@ -1,0 +1,5 @@
+{
+  "name": "LogIntel AI",
+  "description": "A next-generation Log Analytics Chatbot showcasing real-time ingestion, 0.5s latency retrieval, and LLM-powered intelligence.",
+  "requestFramePermissions": []
+}
