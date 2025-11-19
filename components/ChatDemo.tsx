@@ -16,10 +16,17 @@ export const ChatDemo: React.FC = () => {
   ]);
   const [isTyping, setIsTyping] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  
+  // Use a ref for the scrollable container instead of a dummy element
+  const chatContainerRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTo({
+        top: chatContainerRef.current.scrollHeight,
+        behavior: "smooth"
+      });
+    }
   };
 
   useEffect(scrollToBottom, [messages, isTyping, isFullscreen]);
@@ -107,7 +114,7 @@ export const ChatDemo: React.FC = () => {
           </div>
 
           {/* Messages Area */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-slate-900/50">
+          <div ref={chatContainerRef} className="flex-1 overflow-y-auto p-6 space-y-6 bg-slate-900/50 scroll-smooth">
             {messages.map((msg) => (
               <div key={msg.id} className={`flex gap-4 ${msg.sender === Sender.USER ? 'flex-row-reverse' : ''}`}>
                 <div className={`w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center ${
@@ -212,7 +219,6 @@ export const ChatDemo: React.FC = () => {
                 </div>
               </div>
             )}
-            <div ref={messagesEndRef} />
           </div>
 
           {/* Input Area */}

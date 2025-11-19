@@ -24,9 +24,9 @@ const App: React.FC = () => {
             <a href="#architecture" className="hover:text-white transition-colors">Architecture</a>
             <a href="#roadmap" className="hover:text-white transition-colors">Roadmap</a>
           </div>
-          <a href="https://github.com" className="hidden sm:block px-4 py-2 text-xs font-bold bg-white text-slate-900 rounded-full hover:bg-slate-200 transition-colors">
-            View on GitHub
-          </a>
+          <div className="hidden sm:block">
+            {/* Placeholder for right side actions if needed later */}
+          </div>
         </div>
       </nav>
 

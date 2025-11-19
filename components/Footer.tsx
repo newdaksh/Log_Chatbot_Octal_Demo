@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Book, Twitter } from 'lucide-react';
+import { Book, Twitter } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -12,7 +12,6 @@ export const Footer: React.FC = () => {
           </div>
           
           <div className="flex items-center gap-6">
-            <a href="#" className="text-slate-400 hover:text-white transition-colors"><Github size={20} /></a>
             <a href="#" className="text-slate-400 hover:text-white transition-colors"><Book size={20} /></a>
             <a href="#" className="text-slate-400 hover:text-white transition-colors"><Twitter size={20} /></a>
           </div>

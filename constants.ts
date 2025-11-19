@@ -99,6 +99,44 @@ export const DEMO_SCENARIOS = [
     ]
   },
   {
+    label: "CPU Anomaly",
+    query: "Detect CPU usage spikes in payment-service pods > 80%.",
+    responseType: "chart_line",
+    responseText: "Alert: Detected CPU spike reaching 92% at 14:45 UTC correlating with batch job execution.",
+    data: [
+      { time: '14:30', count: 45 },
+      { time: '14:35', count: 48 },
+      { time: '14:40', count: 50 },
+      { time: '14:45', count: 92 },
+      { time: '14:50', count: 60 },
+      { time: '14:55', count: 55 }
+    ]
+  },
+  {
+    label: "Memory Usage",
+    query: "Show top 5 pods by memory consumption.",
+    responseType: "chart_bar",
+    responseText: "Here are the most memory-intensive pods. `analytics-worker-02` is approaching OOM limits.",
+    data: [
+      { time: 'worker-02', count: 1024 },
+      { time: 'api-05', count: 850 },
+      { time: 'web-12', count: 600 },
+      { time: 'redis-01', count: 400 },
+      { time: 'cache-03', count: 350 }
+    ]
+  },
+  {
+    label: "Threat Detect",
+    query: "Scan for SQL injection patterns in query parameters.",
+    responseType: "log_table",
+    responseText: "Found 3 potential SQL injection attempts blocked by WAF in `frontend-proxy`.",
+    data: [
+      {id: 'sec-1', time: '14:05:22', level: 'WARN', msg: 'Blocked: /login?user=\' OR 1=1 --'},
+      {id: 'sec-2', time: '14:05:24', level: 'WARN', msg: 'Blocked: /search?q=UNION SELECT...'},
+      {id: 'sec-3', time: '14:15:01', level: 'WARN', msg: 'Blocked: /admin?id=1; DROP TABLE...'}
+    ]
+  },
+  {
     label: "Security Audit",
     query: "List failed login attempts by country for the last hour.",
     responseType: "chart_bar",
