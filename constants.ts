@@ -101,7 +101,7 @@ export const DEMO_SCENARIOS = [
   {
     label: "Security Audit",
     query: "List failed login attempts by country for the last hour.",
-    responseType: "chart_bar", // treating as generic chart for simplicity or adding bar support
+    responseType: "chart_bar",
     responseText: "Detected suspicious activity from specific regions. Total failed attempts: 432.",
     data: [
       { time: 'US', count: 45 },

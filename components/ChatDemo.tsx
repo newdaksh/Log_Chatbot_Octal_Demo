@@ -60,7 +60,7 @@ export const ChatDemo: React.FC = () => {
   };
 
   const containerClass = isFullscreen 
-    ? "fixed inset-0 z-50 w-full h-full bg-slate-950 flex flex-col"
+    ? "fixed inset-0 z-[100] w-full h-full bg-slate-950 flex flex-col"
     : "bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl min-h-[600px] flex flex-col relative";
 
   return (
@@ -142,8 +142,8 @@ export const ChatDemo: React.FC = () => {
                     </div>
                   )}
 
-                   {/* Rich Content: Bar Chart (New for Security) */}
-                   {msg.type === 'chart_bar' && msg.data && (
+                   {/* Rich Content: Bar Chart */}
+                   {msg.type === MessageType.CHART_BAR && msg.data && (
                     <div className="mt-4 w-full h-64 bg-slate-950 rounded-xl border border-slate-800 p-4">
                       <ResponsiveContainer width="100%" height="100%">
                         <BarChart data={msg.data}>
